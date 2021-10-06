@@ -1,0 +1,63 @@
+﻿@model DataLayer.Entities.Page.Page
+
+<h2>جزئیات خبر @Model.PageTitle</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PageTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PageTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShortDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PageVisit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PageVisit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PageTags)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PageTags)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowInSlider)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShowInSlider)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PageGroup)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PageGroup.GroupTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+        <dd>
+            <img src="/PageImages/@Model.ImageName" class="thumbnail" style="max-width: 200px" />
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">ویرایش خبر</a> |
+    <a asp-action="Index">بازگشت به لیست</a>
+</div>

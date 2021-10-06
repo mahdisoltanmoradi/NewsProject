@@ -1,0 +1,22 @@
+﻿@model DataLayer.Entities.Page.PageGroup
+
+<h2>حذف گروه</h2>
+
+<h3>آیا از حذف گروه '@Model.GroupTitle' مطمئن هستید ؟</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GroupTitle)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">بازگشت به لیست</a>
+    </form>
+</div>

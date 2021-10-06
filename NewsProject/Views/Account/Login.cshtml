@@ -1,0 +1,66 @@
+﻿@model DataLayer.DTOs.User.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+@if (ViewBag.IsSuccess == true)
+{
+    <div class="alert alert-success">
+        <p> ورود شما با موفقیت انجام شد</p>
+    </div>
+    <script>
+        //Yore delay in milliseconds
+        var delay = 2000;
+        setTimeout(function () { window.location = "/"; }, delay);
+    </script>
+
+}
+
+<h2>ورود به سایت</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section>
+            <form asp-action="Login" method="post">
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="RememberMe">
+                            <input asp-for="RememberMe" />
+                            @Html.DisplayNameFor(m => m.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">ورود به سایت</button>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <a asp-action="ForgotPassword">رمز عبور خود را فراموش کرده ام !</a>
+                    </p>
+                    <p>
+                        <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">ثبت نام کاربر جدید</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+
+

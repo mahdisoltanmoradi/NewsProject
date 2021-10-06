@@ -1,0 +1,32 @@
+﻿@using Common.Utilities.Convertor
+@model DataLayer.Entities.Page.Page
+@{
+    ViewData["Title"] = "ShowNews";
+}
+
+<section class="single-news border-radius">
+    <header><h2> @Model.PageTitle </h2> <span> <i class="fa fa-calendar"></i>  انتشار : @Model.CreateDate.ToShamsi()</span></header>
+    <article>
+        <p>
+            @Model.ShortDescription
+        </p>
+
+        @if (Model.ImageName != null)
+        {
+            <div>
+                <img src="/PageImages/@Model.ImageName" alt="@Model.PageTitle" class="thumbnail" />
+            </div>
+        }
+
+        <p>
+            @Model.PageText
+        </p>
+    </article>
+</section>
+<div class="keywords border-radius">
+    @foreach (var item in Model.PageTags.Split('-'))
+    {
+        <a href="/Search?q=@item"> @item </a>
+    }
+</div>
+
